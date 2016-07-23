@@ -61,7 +61,7 @@ namespace Examination.Module1
             #endregion
             #region order area
 
-            strHelper.Append('-', 10).Append("Check").Append('-', 10).Append("\n");
+            strHelper.Append("\n").Append('-', 10).Append("Check").Append('-', 10).Append("\n");
             strHelper.Append(basket.GetCheck()).Append("\n");
             strHelper.Append("For payment: ").Append(basket.ForPayment).Append("\n");
             strHelper.Append("Total Discount: ").Append(basket.TotalDiscount).Append("\n").Append('-',25);
@@ -75,66 +75,3 @@ namespace Examination.Module1
 
     }
 }
-//namespace Second
-//{
-//    interface Item
-//    {
-//        string Name { get; set; }
-//        int Age { get; set; }
-//    }
-//    enum ProductList
-//    {
-//        Apple = 1,
-//        Breed,
-//        Cola,
-//        Beef
-//    }
-
-//    class Product
-//    {
-//        public string Name { set; get; }
-//        public int Price { set; get; }
-//        public dynamic BuyInfo { set; get; }
-//    }
-//    class Program
-//    {
-//        static void Main(string[] args)
-//        {
-//            StringBuilder strCheck = new StringBuilder();
-//            List<dynamic> collection = new List<dynamic>() {
-//            new {Name  = "a", Age = 23 },
-//            new { Name  = "b", Age = 35 },
-//            new { Name  = "c", Age = 32},
-//            new { Name  = "d", Age = 26 },
-//            new { Name  = "e", Age = 21 }
-//            };
-
-//            foreach (var item in collection)
-//            {
-//                strCheck.Append(String.Format("Name: {0}, Age: {1}\n", item.Name, item.Age));
-//            }
-//            Console.WriteLine(strCheck.ToString());
-
-//            Console.WriteLine(new string('-', 10));
-//            int data = 1;
-//            switch ((ProductList)data)
-//            {
-//                case ProductList.Apple:
-//                    Console.WriteLine("Apple");
-//                    break;
-
-//            }
-
-
-//            IDictionary<ProductList, Product> dict = new Dictionary<ProductList, Product>();
-//            dict.Add(ProductList.Apple, new Product() { Name = "Apple", Price = 15 });
-//            dict.Add(ProductList.Beef, new Product() { Name = "Beef", Price = 25 });
-//            dict.Add(ProductList.Breed, new Product() { Name = "Breed", Price = 35 });
-//            foreach (var KV in dict)
-//            {
-//                Console.WriteLine((int)KV.Key + " : " + KV.Value.GetType().Name);
-//            }
-//            Console.WriteLine(dict[ProductList.Apple].Price);
-//        }
-//    }
-//}
