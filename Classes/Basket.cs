@@ -9,7 +9,11 @@ namespace Examination.Module1
     class Basket
     {
         private int discount;
-        public int Discount { get { return discount; } set { discount = (value > 100) ? 0 : value; } }
+        public int Discount
+        {
+            get { return discount; }
+            set { discount = (value > 100) ? 0 : value; }
+        }
         public  double  TotalDiscount { protected set; get; }
         public double ForPayment { protected set; get; }
         protected IList<dynamic> ListOfGoods;

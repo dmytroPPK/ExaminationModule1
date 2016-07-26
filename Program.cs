@@ -16,16 +16,20 @@ namespace Examination.Module1
             Console.Write("Enter please your name: ");
             String strName = Console.ReadLine();
             Console.WriteLine($"{strName}, choose that you want to buy:\n");
-            strHelper.Append('-', 10).Append("Products").Append('-',10).Append("\n");
+            strHelper.Append('-', 10)
+                     .Append("Products")
+                     .Append('-',10)
+                     .Append("\n");
             Console.Write(strHelper);
             strHelper.Clear();
             foreach (var KV in Product.Store)
             {
                 String value = String.Format("{0,3}. {1,-10} : $ {2:F}", (int)KV.Key, KV.Value.Name, KV.Value.Price);
-                strHelper.Append("\n");
-                strHelper.Append(value);
+                strHelper.Append("\n")
+                         .Append(value);
             }
-            strHelper.Append("\n\n<exit> : EXIT\n").Append('-',28);
+            strHelper.Append("\n\n<exit> : EXIT\n")
+                     .Append('-',28);
             Console.WriteLine(strHelper);
             strHelper.Clear();
             #endregion
@@ -35,21 +39,26 @@ namespace Examination.Module1
             Int32 intId = default(Int32);
             String strQuatity = default(String);
             Int32 intQuatity = default(Int32);
-            Boolean validEntered = false;
+            
             Basket basket = new Basket();
-            while (!validEntered)
+            while (true)
             {
                 Console.Write("Enter id of product: ");
                 strId = Console.ReadLine();
                 Console.Write("Enter quatity: ");
                 strQuatity = Console.ReadLine();
-                validEntered = (Int32.TryParse(strId,out intId) && Int32.TryParse(strQuatity,out intQuatity));
-                if (!validEntered) continue;
+                if (!(Int32.TryParse(strId, out intId) && Int32.TryParse(strQuatity, out intQuatity)))
+                {
+                    continue;
+                }
                 basket.AddProduct(intId,intQuatity);
                 Console.Write(" - Added. Press any key to continue or enter 'exit' to EXIT: ");
-                if (Console.ReadLine().ToLower() == "exit") break;
-                else validEntered = false;
+                if (Console.ReadLine().ToLower() == "exit") {
+                    break;
+                }
+                
             }
+
             Console.Write("Do you have a discount? <yes,no>: ");
             if (Console.ReadLine().ToLower() == "yes") {
                 Console.Write("Enter a value of discount <in %>: ");
@@ -61,10 +70,20 @@ namespace Examination.Module1
             #endregion
             #region order area
 
-            strHelper.Append("\n").Append('-', 10).Append("Check").Append('-', 10).Append("\n");
-            strHelper.Append(basket.GetCheck()).Append("\n");
-            strHelper.Append("For payment: ").Append(basket.ForPayment).Append("\n");
-            strHelper.Append("Total Discount: ").Append(basket.TotalDiscount).Append("\n").Append('-',25);
+            strHelper.Append("\n")
+                     .Append('-', 10)
+                     .Append("Check")
+                     .Append('-', 10)
+                     .Append("\n");
+            strHelper.Append(basket.GetCheck())
+                     .Append("\n");
+            strHelper.Append("For payment: ")
+                     .Append(basket.ForPayment)
+                     .Append("\n");
+            strHelper.Append("Total Discount: ")
+                     .Append(basket.TotalDiscount)
+                     .Append("\n")
+                     .Append('-',25);
             
             Console.WriteLine(strHelper.ToString());
             strHelper = null;

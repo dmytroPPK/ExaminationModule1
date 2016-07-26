@@ -23,6 +23,7 @@ namespace Examination.Module1
         public double Price { get; protected set; }
 
         public static IDictionary<ProductList, Product> Store { get; private set; }
+
         static Product()
         {
             Store = new Dictionary<ProductList, Product>();
